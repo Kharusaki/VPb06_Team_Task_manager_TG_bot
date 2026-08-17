@@ -22,8 +22,8 @@
 ### 1. Клонирование
 
 ```bash
-git clone https://github.com/Kharusaki/VPb06.-Telegram--.git
-cd VPb06.-Telegram--
+git clone https://github.com/Kharusaki/VPb06.Case_Telegram-bot_for_team.git
+cd VPb06.Case_Telegram-bot_for_team
 ```
 
 ### 2. Виртуальное окружение
@@ -56,7 +56,39 @@ pip install -r requirements.txt
 4. Задайте username (должен заканчиваться на `bot`)
 5. Скопируйте полученный токен
 
-### 5. Настройка токена
+### 5. Регистрация команд в BotFather
+
+Чтобы список команд отображался в интерфейсе Telegram при вводе `/`:
+
+1. В диалоге с **@BotFather** отправьте `/setmycommands`
+2. Выберите своего бота из списка
+3. Отправьте команды в формате JSON:
+
+```json
+[
+  {"command": "start", "description": "Приветствие и подсказка"},
+  {"command": "help", "description": "Справка по командам"},
+  {"command": "add", "description": "Добавить новую задачу"},
+  {"command": "list", "description": "Показать все задачи"},
+  {"command": "list_csv", "description": "Скачать задачи в CSV"},
+  {"command": "select_task", "description": "Выбрать задачу для редактирования"},
+  {"command": "cancel", "description": "Отменить текущее действие"},
+  {"command": "edit_name", "description": "Изменить название задачи"},
+  {"command": "add_description", "description": "Добавить описание"},
+  {"command": "set_duedate", "description": "Установить срок"},
+  {"command": "set_incharge", "description": "Назначить исполнителя"},
+  {"command": "set_priority", "description": "Установить приоритет"},
+  {"command": "edit_status", "description": "Изменить статус"},
+  {"command": "comment", "description": "Оставить комментарий"},
+  {"command": "view_comments", "description": "Посмотреть комментарии"},
+  {"command": "set_done", "description": "Закрыть задачу"},
+  {"command": "delete_task", "description": "Удалить задачу"}
+]
+```
+
+4. BotFather подтвердит регистрацию команд
+
+### 6. Настройка токена
 
 ```bash
 cp .env.example .env
@@ -68,7 +100,7 @@ cp .env.example .env
 BOT_TOKEN=ваш_токен_от_BotFather
 ```
 
-### 6. Запуск
+### 7. Запуск
 
 ```bash
 python main.py
